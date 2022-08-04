@@ -1,44 +1,37 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Tag from './src/components/Tag';
-import HomePage from './src/screens/HomePage';
+import PageOne from './src/screens/PageOne';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Buoc from './src/screens/Buoc';
+import AmThanh from './src/screens/AmThanh';
+import { Text } from 'react-native';
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const App = () => {
+  const click = () => {
+
+  }
+
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          headerShown: false,
-          tabBarStyle: {
-            backgroundColor: '#1a1a1a',
+      <Stack.Navigator >
+        <Stack.Screen name="PageOne" component={PageOne} options={{ headerShown: false }} />
+        <Stack.Screen name="Buoc" component={Buoc} options={{
+          headerStyle: {
+            backgroundColor: '#808080',
           },
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === 'Home') {
-              iconName = 'facebook';
-              size = focused ? 25 : 20;
-            } else if (route.name === 'Settings') {
-              iconName = 'ios-information-circle';
-              size = focused ? 25 : 20;
-            }
-
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
+          headerTintColor: 'white',
+          headerRight: () => {
+            return <Text onPress={click}
+              style={{ color: 'white', fontSize: 19, fontWeight: '500' }}>
+              Thêm dữ liệu
+            </Text>
           },
-          tabBarActiveTintColor: '#429afc',
-          tabBarInactiveTintColor: '#808080',
-        })}>
-        <Tab.Screen
-          name="Tóm tắt"
-          component={HomePage}
-        />
-        <Tab.Screen name="Duyệt" component={Tag} />
-      </Tab.Navigator>
+        }} />
+        <Stack.Screen name="AmThanh" component={AmThanh} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
