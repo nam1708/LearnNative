@@ -3,6 +3,7 @@ import Ionicons from 'react-native-vector-icons/FontAwesome5';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TomTat from './TomTat';
 import Duyet from './Duyet';
+import { StyleSheet } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,3 +43,4 @@ const PageOne = () => {
 };
 
 export default PageOne;
+

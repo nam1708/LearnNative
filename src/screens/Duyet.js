@@ -51,7 +51,7 @@ const Buoc = () => {
                             ? <Text>'Error!'</Text>
                             : query.data
                                 ? <View>
-                                    {query.data.map(todo => <Text>{todo.id}: {todo.title}</Text>)}
+                                    {query.data.map(todo => <Text key={todo.id}>{todo.id}: {todo.title}</Text>)}
                                 </View>
                                 : null}
                 </View>

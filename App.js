@@ -5,7 +5,7 @@ import PageOne from './src/screens/PageOne';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Buoc from './src/screens/Buoc';
 import AmThanh from './src/screens/AmThanh';
-import { Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import {
   QueryClient,
   QueryClientProvider,
@@ -24,7 +24,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <QueryClientProvider client={queryClient}>
-        <Stack.Navigator >
+        <Stack.Navigator>
           <Stack.Screen name="PageOne" component={PageOne} options={{ headerShown: false }} />
           <Stack.Screen name="Buoc" component={Buoc} options={{
             headerStyle: {
@@ -45,4 +45,6 @@ const App = () => {
   );
 };
 
+
 export default App;
+
