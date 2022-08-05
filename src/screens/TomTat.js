@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View, Button, Pressable } from 'react-native';
-import Tag from '../components/Tag';
+import { Avatar } from "@rneui/themed";
 
 const TomTat = () => {
   const native = useNavigation()
@@ -9,7 +9,7 @@ const TomTat = () => {
   const time = d.toLocaleTimeString("en-US");
 
   const onClickBuoc = () => {
-    native.navigate('Buoc')
+    native.navigate('Buoc', { total: '131' })
   }
 
   const onClickNghe = () => {
@@ -55,6 +55,15 @@ const TomTat = () => {
           </View>
         </Pressable>
       </View>
+      <Avatar
+        size={64}
+        rounded
+        source={{ uri: 'https://randomuser.me/api/portraits/women/57.jpg' }}
+        title="Bj"
+        containerStyle={{ backgroundColor: 'grey' }}
+      >
+        <Avatar.Accessory size={23} />
+      </Avatar>
     </ScrollView>
   );
 };

@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet, Text } from 'react-native';
 
-const Buoc = ({ navigation }) => {
+const Buoc = ({ route }) => {
+
+    console.log(route.params.total);
 
     return (
         <ScrollView style={styles.scrollView}>
